@@ -20,13 +20,17 @@ function App() {
     const newTransaction = {
       id: Date.now(),
       text: texto.trim(),
-      amount: Number(monto),
+      monto: Number(monto),
     };
 
     setTransactions((current) => [...current, newTransaction]);
     console.log("Nueva transacción:", newTransaction);
     setTexto("");
     setMonto("");
+  };
+
+  const deleteTransaction = (id) => {
+    setTransactions((current) => current.filter((transaction) => transaction.id !== id));
   };
 
   return (
@@ -42,6 +46,7 @@ function App() {
             setMonto={setMonto}
             transactions={transactions}
             addTransaction={addTransaction}
+            deleteTransaction={deleteTransaction}
           />
         </main>
       </div>

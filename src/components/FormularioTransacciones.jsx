@@ -7,6 +7,7 @@ function Formulario({
   setMonto,
   transactions,
   addTransaction,
+  deleteTransaction,
 }) {
   return (
     <>
@@ -73,7 +74,7 @@ function Formulario({
           {transactions.length > 0 && (
             <section className="w-full p-4 flex flex-col items-center justify-center z-40 gap-3">
               {transactions.map((transaction) => {
-                const isPositive = transaction.amount >= 0;
+                const isPositive = transaction.monto >= 0;
 
                 return (
                   <div
@@ -85,11 +86,19 @@ function Formulario({
                     }`}
                   >
                     <p className="font-medium">{transaction.text}</p>
-                    <p
-                      className={`font-semibold ${isPositive ? "text-[#19ca8c]" : "text-[#e74c3c]"}`}
-                    >
-                      ${transaction.amount.toFixed(2)}
-                    </p>
+                    <div className="flex items-center gap-3">
+                      <p
+                        className={`font-semibold ${isPositive ? "text-[#19ca8c]" : "text-[#e74c3c]"}`}
+                      >
+                        ${transaction.monto.toFixed(2)}
+                      </p>
+                      <button
+                        onClick={() => deleteTransaction(transaction.id)}
+                        className="bg-[#e74c3c] hover:bg-[#c0392b] text-white px-3 py-1 rounded-lg text-sm font-semibold transition-colors"
+                      >
+                        X
+                      </button>
+                    </div>
                   </div>
                 );
               })}
