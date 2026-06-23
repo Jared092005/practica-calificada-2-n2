@@ -41,7 +41,7 @@ function Formulario({
                   $
                 </span>
                 <input
-                  className="w-full h-12 pl-8 pr-4 rounded-lg border border-slate-200 dark:border-primary/20 bg-white dark:bg-input-dark text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-slate-600 focus:ring-2 focus:ring-primary focus:border-transparent transition-all outline-none"
+                  className="w-full h-12 pl-8 pr-4 rounded-lg border border-slate-200 dark:border-primary/20 bg-white dark:bg-input-dark text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-slate-600 focus:ring-2 focus:ring-primary focus:border-transparent transition-all outline-none [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
                   placeholder="0.00"
                   type="number"
                   value={monto}
